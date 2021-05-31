@@ -1,11 +1,13 @@
 //importing the express 
-const express = require('express')
-const dotenv =require('dotenv')
-const products = require('./data/products')
+import express from 'express'
+import dotenv from 'dotenv'
+import connectDB from './config/db.js'
+import products from './data/products.js'
 //running the express
 const app = express()
 
 dotenv.config()
+connectDB()
 
 const PORT = process.env.PORT
 app.listen(PORT, console.log(`Server is running on ${process.env.NODE_ENV} mode at port ${PORT}`))
